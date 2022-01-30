@@ -182,11 +182,11 @@ class Agenda {
 
   //retorna o objeto contato com esse nome ou null se não existir
   public findContact(name:string):Contato{
-    let posit = this.findPosByName(name)
-    if (posit <0){
-      return null
+    for (let contato of this.contatos){
+      if(contato.getId().includes(name)){
+        return contato
+      }
     }
-    return this.contatos[posit]
   }
   //se nenhum contato existir com esse nome, adicione
   //se ja existir, faça o merge adicionando os telefones
@@ -228,14 +228,6 @@ class Agenda {
       lista[j]= this.contatos[j].toString()+"\n"
     }
     return ""+ lista
-  }
-
-  public mostrar ():string {
-    let lista:Array<string> = []
-    for (let j = 0; j<this.contatos.length;j++){
-      lista[j]= this.contatos[j].toString()+"\n"
-    }
-    return "- " + lista
   }
 }
 
