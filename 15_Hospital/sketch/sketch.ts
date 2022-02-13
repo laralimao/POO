@@ -238,7 +238,7 @@ class Paciente{
 
   public toString(){
     let keys = this.medicos.keys();
-    return this.nome + " ["+ [...keys].join(", ") + "]";
+    return this.nome + ":" +this.diag + " Médicos: ["+ [...keys].join(", ") + "]";
   }
 
 }
@@ -279,7 +279,7 @@ class Medico {
   }
   public toString(){
     let keys = this.pacientes.keys();
-    return this.nome + " ["+ [...keys].join(", ") + "]";
+    return this.nome + ":" + this.espec+ " Pacientes: ["+ [...keys].join(", ") + "]";
   }
 }
 
